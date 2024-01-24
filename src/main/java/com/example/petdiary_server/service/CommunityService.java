@@ -32,6 +32,7 @@ public class CommunityService {
             ScreenRepository screenRepository) {
         this.factory = new ComNotesScreensFactory(userRepository, noteRepository, screenRepository);
         // 추상 팩토리 - 다른 Strategy들 반환하고 싶으면 클래스 새로 구현해서 여기만 바꾸면 됨(아래 메소드들 바꿀 필요 없음)
+        // 주석 추가 테스트
     }
 
     public ResStatus<List<NoteRes>> getNotes(String userId, String screenTitle) {
