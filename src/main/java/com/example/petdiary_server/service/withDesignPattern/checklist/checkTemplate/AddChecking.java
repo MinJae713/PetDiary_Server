@@ -13,6 +13,6 @@ public class AddChecking extends AbstChecking{
 
     @Override
     protected UserTodoInfoWrapper tcodCheck(TodoCheckOfDate targetTodoCheckOfDate) {
-        return new UserTodoInfoWrapper(true, "tcod확인 완료유", null, null);
+        return new UserTodoInfoWrapper(true, "tcod확인 완료입니다!", null, null);
     }
 }

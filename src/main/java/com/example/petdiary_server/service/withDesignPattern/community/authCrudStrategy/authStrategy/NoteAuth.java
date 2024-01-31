@@ -19,9 +19,9 @@ public class NoteAuth extends ComAuthStrategy {
     @Override
     public AbstWrapper operate() {
         User targetUser = userRepository.findById(userId).orElse(null);
-        if (targetUser == null) return new NoteWrapper(false, "사용자를 못찾았어유", null, null);
+        if (targetUser == null) return new NoteWrapper(false, "사용자를 못찾았습니다.", null, null);
         Note targetNote = noteRepository.findById(param).orElse(null);
-        if (targetNote == null) return new NoteWrapper(false, "게시글을 못찾았어유", null, null);
-        return new NoteWrapper(true, "인증 성공이어유",targetUser, targetNote);
+        if (targetNote == null) return new NoteWrapper(false, "게시글을 못찾았습니다.", null, null);
+        return new NoteWrapper(true, "인증 성공입니다!",targetUser, targetNote);
     }
 }

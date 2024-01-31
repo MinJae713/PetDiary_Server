@@ -20,10 +20,10 @@ public class EditTodoCal extends CalTCeditTCStrategy{
     @Override
     public ResStatus<TodoCalRes> crudCal(String successMessage) {
         TodoCal target = todoCalRepository.findById(editTodoCalReq.getId()).orElse(null);
-        if (target == null) return new ResStatus<TodoCalRes>(false, "해당 할 일을 못 찾았어유", null);
+        if (target == null) return new ResStatus<TodoCalRes>(false, "해당 할 일을 못 찾았습니다.", null);
         target.setText(editTodoCalReq.getText());
         TodoCal editResult = todoCalRepository.save(target);
-        if (editResult == null) new ResStatus<TodoCalRes>(false, "수정이 안되었어유!", null);
+        if (editResult == null) new ResStatus<TodoCalRes>(false, "수정이 안 되었습니다.", null);
         TodoCalRes result = editResult.createTodoCalRes();
         return new ResStatus<TodoCalRes>(true, successMessage, result);
     }

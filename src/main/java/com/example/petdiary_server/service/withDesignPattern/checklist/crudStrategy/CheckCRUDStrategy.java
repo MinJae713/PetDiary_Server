@@ -34,7 +34,7 @@ public abstract class CheckCRUDStrategy {
 
     protected ResStatus<List<TodoCheckRes>> getTodoChecks(String message, TodoCheckOfDate targetTodoCheckOfDate) {
         List<TodoCheck> todoChecks = todoCheckRepository.findAllByTodoCheckOfDate(targetTodoCheckOfDate).orElse(null);
-        if (todoChecks == null) return new ResStatus<List<TodoCheckRes>>(false, "할 일 내용을 하나도 못찾았어유", null);
+        if (todoChecks == null) return new ResStatus<List<TodoCheckRes>>(false, "할 일 내용을 하나도 못찾았습니다.", null);
         List<TodoCheckRes> result = new ArrayList<TodoCheckRes>();
         for (TodoCheck todo : todoChecks)
             result.add(todo.createTodoCheckRes());

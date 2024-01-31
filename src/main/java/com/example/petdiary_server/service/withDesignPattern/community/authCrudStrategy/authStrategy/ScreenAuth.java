@@ -19,9 +19,9 @@ public class ScreenAuth extends ComAuthStrategy {
     @Override
     public AbstWrapper operate() {
         User targetUser = userRepository.findById(userId).orElse(null);
-        if (targetUser == null) return new ScreenWrapper(false, "사용자를 못찾았어유", null, null);
+        if (targetUser == null) return new ScreenWrapper(false, "사용자를 못 찾았습니다.", null, null);
         Screen targetScreen = screenRepository.findByTitle(param).orElse(null);
-        if (targetScreen == null) return new ScreenWrapper(false, "해당 게시판을 못찾았어유", null, null);
-        return new ScreenWrapper(true, "인증 성공이어유", targetUser, targetScreen);
+        if (targetScreen == null) return new ScreenWrapper(false, "해당 게시판을 못 찾았습니다.", null, null);
+        return new ScreenWrapper(true, "인증 성공입니다!", targetUser, targetScreen);
     }
 }

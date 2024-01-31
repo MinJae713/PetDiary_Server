@@ -42,18 +42,18 @@ public class ChecklistService {
 
     public ResStatus<List<TodoCheckRes>> addTodoCheck(AddTodoCheckReq addTodoCheckReq) {
         crudStrategy = factory.createAddStrategy(addTodoCheckReq);
-        return crudStrategy.crudCheckList("저장 성공이어유!");
+        return crudStrategy.crudCheckList("저장 성공입니다!");
     }
     public ResStatus<List<TodoCheckRes>> deleteTodoCheck(String todoId, String userId, String writeDate) {
         crudStrategy = factory.createDeleteStrategy(todoId, userId, writeDate);
-        return crudStrategy.crudCheckList("삭제 성공이어유!");
+        return crudStrategy.crudCheckList("삭제 성공입니다!");
     }
     public ResStatus<List<TodoCheckRes>> toggleTodoCheck(String todoId, String userId, String writeDate) {
         crudStrategy = factory.createToggleStrategy(todoId, userId, writeDate);
-        return crudStrategy.crudCheckList("토글 성공이어유!");
+        return crudStrategy.crudCheckList("토글 성공입니다!");
     }
     public ResStatus<List<TodoCheckRes>> loadTodosCheck(String userId, String writeDate) {
         crudStrategy = factory.createLoadStrategy(userId, writeDate);
-        return crudStrategy.crudCheckList("조회 성공이어유!");
+        return crudStrategy.crudCheckList("조회 성공입니다!");
     }
 }

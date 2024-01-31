@@ -19,7 +19,7 @@ public class ComGetScreenTitlesStrategy extends ComGetScreensStrategy{
     @Override
     public ResStatus<List<ScreenRes>> getScreens(String message) {
         List<Screen> screens = screenRepository.findAllByType(type).orElse(null);
-        if (screens == null) return new ResStatus<List<ScreenRes>>(false, "게시물을 못불러왔어유", null);
+        if (screens == null) return new ResStatus<List<ScreenRes>>(false, "게시물을 못불러왔습니다.", null);
         List<ScreenRes> screenReses = new ArrayList<ScreenRes>();
         for (Screen screen : screens) screenReses.add(screen.getScreenRes());
         return new ResStatus<List<ScreenRes>>(true, message, screenReses);

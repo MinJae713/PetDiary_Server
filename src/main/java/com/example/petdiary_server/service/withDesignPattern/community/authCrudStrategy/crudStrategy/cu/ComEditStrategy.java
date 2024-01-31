@@ -37,7 +37,7 @@ public class ComEditStrategy extends ComCUStrategy {
         targetNote.setTime(noteReq.getTime());
         Note editResult = noteRepository.save(targetNote);
         if (editResult == null)
-            return new ResStatus<List<NoteRes>>(false, "수정이 안되었어유", null);
+            return new ResStatus<List<NoteRes>>(false, "수정이 안 되었습니다.", null);
         return getNotesRes(targetNote.getScreen());
     }
 }

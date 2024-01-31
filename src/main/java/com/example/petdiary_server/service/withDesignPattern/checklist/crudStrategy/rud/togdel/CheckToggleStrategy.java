@@ -22,7 +22,7 @@ public class CheckToggleStrategy extends CheckUDStrategy{
     public ResStatus<List<TodoCheckRes>> crudCheckList(String message) {
         TodoCheck target = todoCheckRepository.findById(todoId).orElse(null);
         if (target == null)
-            return new ResStatus<List<TodoCheckRes>>(false, "아이디에 맞는 할 일이 없어유", null);
+            return new ResStatus<List<TodoCheckRes>>(false, "아이디에 맞는 할 일이 없습니다.", null);
         target.setChecked(!target.isChecked());
         todoCheckRepository.save(target);
         return super.crudCheckList(message);

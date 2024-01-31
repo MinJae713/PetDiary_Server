@@ -25,9 +25,9 @@ public abstract class ComCUStrategy extends ComCRUDStrategy {
         if (!authResult.isSuccess())
             return new ResStatus<List<NoteRes>>(false, authResult.getMessage(), null);
         if (noteReq.getTitle().length() == 0)
-            return new ResStatus<List<NoteRes>>(false, "제목이 아무것도 안적혔어유", null);
+            return new ResStatus<List<NoteRes>>(false, "제목이 아무것도 안 적혔습니다.", null);
         if (noteReq.getDesc().length() == 0)
-            return new ResStatus<List<NoteRes>>(false, "내용이 아무것도 안적혔어유", null);
-        return new ResStatus<List<NoteRes>>(true, "인증 완료유", null);
+            return new ResStatus<List<NoteRes>>(false, "내용이 아무것도 안 적혔습니다.", null);
+        return new ResStatus<List<NoteRes>>(true, "인증 완료입니다.", null);
     }
 }

@@ -27,10 +27,10 @@ public abstract class ComCRUDStrategy extends ComStrategy<ResStatus<List<NoteRes
     protected ResStatus<List<NoteRes>> getNotesRes(Screen targetScreen) {
         // 게시글 리스트 반환 작업
         List<Note> targetNotes = noteRepository.findAllByScreen(targetScreen).orElse(null);
-        if (targetNotes == null) return new ResStatus<List<NoteRes>>(false, "등록된 게시글이 아무것도 없어유", null);
+        if (targetNotes == null) return new ResStatus<List<NoteRes>>(false, "등록된 게시글이 아무것도 없습니다.", null);
         List<NoteRes> noteReses = new ArrayList<NoteRes>();
         for (Note note : targetNotes) noteReses.add(note.getNoteRes());
-        ResStatus<List<NoteRes>> result = new ResStatus<List<NoteRes>>(true, "조회 성공이어유!", noteReses);
+        ResStatus<List<NoteRes>> result = new ResStatus<List<NoteRes>>(true, "조회 성공입니다!", noteReses);
         return result;
     }
 }

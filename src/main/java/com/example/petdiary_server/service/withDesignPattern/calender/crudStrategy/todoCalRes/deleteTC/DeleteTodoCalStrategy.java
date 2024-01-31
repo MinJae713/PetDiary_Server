@@ -18,7 +18,7 @@ public class DeleteTodoCalStrategy extends CalTCdeleteTCStrategy{
     @Override
     public ResStatus<TodoCalRes> crudCal(String successMessage) {
         TodoCal target = todoCalRepository.findById(id).orElse(null);
-        if (target == null) return new ResStatus<TodoCalRes>(false, "해당 할 일을 못 찾았어유", null);
+        if (target == null) return new ResStatus<TodoCalRes>(false, "해당 할 일을 못 찾았습니다.", null);
         todoCalRepository.delete(target);
         TodoCalRes result = target.createTodoCalRes();
         return new ResStatus<TodoCalRes>(true, successMessage, result);

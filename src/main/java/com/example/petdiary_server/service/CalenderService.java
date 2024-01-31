@@ -30,26 +30,26 @@ public class CalenderService {
 
     public ResStatus<AllTodosInfoRes> addTodoCal(AddTodoCalReq addTodoCalReq) {
         calStrategy = factory.createAddTCStrategy(addTodoCalReq);
-        return calStrategy.crudCal("저장 성공이어유!");
+        return calStrategy.crudCal("저장 성공입니다!");
     }
     public ResStatus<AllTodosInfoRes> getTodoCalFromDate(String dateId, String userId) {
         calStrategy = factory.createGetTCFDStrategy(dateId, userId);
-        return calStrategy.crudCal("조회 성공이어유!");
+        return calStrategy.crudCal("조회 성공입니다!");
     }
     public ResStatus<TodosCalOfDateRes> addTodosCalOfDate(TodosCalOfDateReq reqData) {
         calStrategy = factory.createAddTCODStrategy(reqData);
-        return calStrategy.crudCal("저장 성공이어유!");
+        return calStrategy.crudCal("저장 성공입니다!");
     }
     public ResStatus<TodosCalOfDateRes> editFeelIdx(TodosCalOfDateReq reqData) {
         calStrategy = factory.createEditFeelStrategy(reqData);
-        return calStrategy.crudCal("수정 성공이어유!");
+        return calStrategy.crudCal("수정 성공입니다!");
     }
     public ResStatus<TodoCalRes> editTodoCal(EditTodoCalReq editTodoCalReq) {
         calStrategy = factory.createEditTCStrategy(editTodoCalReq);
-        return calStrategy.crudCal("수정 성공이어유!");
+        return calStrategy.crudCal("수정 성공입니다!");
     }
     public ResStatus<TodoCalRes> deleteTodoCal(String id) {
         calStrategy = factory.createDeleteTCStrategy(id);
-        return calStrategy.crudCal("삭제 성공이어유!");
+        return calStrategy.crudCal("삭제 성공입니다!");
     }
 }

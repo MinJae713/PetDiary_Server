@@ -20,12 +20,12 @@ public abstract class AbstChecking {
     public UserTodoInfoWrapper checkUserAndWriteDate(String userId, String writeDate) {
         User targetUser = userRepository.findById(userId).orElse(null);
         if (targetUser == null)
-            return new UserTodoInfoWrapper(false, "사용자를 못찾았어유", null, null);
+            return new UserTodoInfoWrapper(false, "사용자를 못찾았습니다.", null, null);
         TodoCheckOfDate targetTodoCheckOfDate =
                 todoCheckOfDateRepository.findByUserAndWriteDate(targetUser, writeDate).orElse(null);
         UserTodoInfoWrapper tcodCheckResult = tcodCheck(targetTodoCheckOfDate); // 추상 형식
         if (!tcodCheckResult.isSuccess()) return tcodCheckResult;
-        return new UserTodoInfoWrapper(true, "확인 성공이어유", targetUser, targetTodoCheckOfDate);
+        return new UserTodoInfoWrapper(true, "확인 성공입니다!", targetUser, targetTodoCheckOfDate);
     }
 
     protected abstract UserTodoInfoWrapper tcodCheck(TodoCheckOfDate targetTodoCheckOfDate);

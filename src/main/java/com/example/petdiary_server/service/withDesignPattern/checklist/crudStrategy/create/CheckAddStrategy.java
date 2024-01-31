@@ -32,7 +32,7 @@ public class CheckAddStrategy extends CheckCStrategy{
             return new ResStatus<List<TodoCheckRes>>(false, checkResult.getMessage(), null);
         User targetUser = checkResult.getUser();
         TodoCheckOfDate targetTodoCheckOfDate = checkResult.getTodoCheckOfDate();
-        if (targetTodoCheckOfDate == null) { // 없다면 새로 만들어
+        if (targetTodoCheckOfDate == null) {
             TodoCheckOfDate newTodoCheckOfDate = new TodoCheckOfDate(null, newTask.getWriteDate(), targetUser);
             targetTodoCheckOfDate = todoCheckOfDateRepository.save(newTodoCheckOfDate);
         }
@@ -43,7 +43,7 @@ public class CheckAddStrategy extends CheckCStrategy{
                 targetTodoCheckOfDate
         );
         TodoCheck saveResult = todoCheckRepository.save(todoCheck);
-        if (saveResult == null) return new ResStatus<List<TodoCheckRes>>(false, "저장 실패여유", null);
+        if (saveResult == null) return new ResStatus<List<TodoCheckRes>>(false, "저장 실패입니다.", null);
         return getTodoChecks(message, targetTodoCheckOfDate);
     }
 }

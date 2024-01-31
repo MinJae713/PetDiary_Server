@@ -22,14 +22,14 @@ public class EditFeelIdxStrategy extends CalTCODCUStrategy{
     public ResStatus<TodosCalOfDateRes> crudCal(String successMessage) {
         User targetUser = userRepository.findById(reqData.getUserId()).orElse(null);
         if (targetUser == null)
-            return new ResStatus<TodosCalOfDateRes>(false, "아이디에 맞는 사용자가 없어유", null);
+            return new ResStatus<TodosCalOfDateRes>(false, "아이디에 맞는 사용자가 없습니다.", null);
         TodoCalOfDate targetTodoCalOfDate = todoCalOfDateRepository.findByUserAndDate(targetUser, reqData.getDateId()).orElse(null);
         if (targetTodoCalOfDate == null)
-            return new ResStatus<TodosCalOfDateRes>(false, "작성된 일, 선택된 기분이 아무것도 없어유", null);
+            return new ResStatus<TodosCalOfDateRes>(false, "작성된 일, 선택된 기분이 아무것도 없습니다.", null);
         // --------------------------------------------------------------------------------------------
         targetTodoCalOfDate.setFeelIdx(reqData.getFeelIdx());
         TodoCalOfDate saveResult = todoCalOfDateRepository.save(targetTodoCalOfDate);
-        if (saveResult == null) return new ResStatus<TodosCalOfDateRes>(false, "수정이 안되었어유", null);
+        if (saveResult == null) return new ResStatus<TodosCalOfDateRes>(false, "수정이 안 되었습니다.", null);
         TodosCalOfDateRes result = saveResult.createTodoCalDate();
         return new ResStatus<TodosCalOfDateRes>(true, successMessage, result);
     }

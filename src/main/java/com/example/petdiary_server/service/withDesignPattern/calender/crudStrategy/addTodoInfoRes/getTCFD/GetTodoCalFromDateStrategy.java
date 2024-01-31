@@ -26,15 +26,15 @@ public class GetTodoCalFromDateStrategy extends CalATIgetTCFDStrategy{
     public ResStatus<AllTodosInfoRes> crudCal(String successMessage) {
         User targetUser = userRepository.findById(userId).orElse(null);
         if (targetUser == null)
-            return new ResStatus<AllTodosInfoRes>(false, "아이디에 맞는 사용자가 없어유", null);
+            return new ResStatus<AllTodosInfoRes>(false, "아이디에 맞는 사용자가 없습니다.", null);
         TodoCalOfDate targetTodoCalOfDate = todoCalOfDateRepository.findByUserAndDate(targetUser, dateId).orElse(null);
         if (targetTodoCalOfDate == null)
-            return new ResStatus<AllTodosInfoRes>(false, "작성된 일, 선택된 기분이 아무것도 없어유", null);
+            return new ResStatus<AllTodosInfoRes>(false, "작성된 일, 선택된 기분이 아무것도 없습니다.", null);
         // --------------------------------------------------------------------------------------------
         List<TodoCal> targetTodoCals = todoCalRepository.findAllByTodoCalOfDate(targetTodoCalOfDate).orElse(null);
         AllTodosInfoRes result = null;
         List<TodoCalRes> todoCalRes = new ArrayList<TodoCalRes>();
-        String message = "선택 기분은 있는디 작성된 일이 없어유";
+        String message = "선택 기분은 있는디 작성된 일이 없습니다.";
         if (targetTodoCals != null) {
             for (TodoCal todoCal : targetTodoCals) todoCalRes.add(todoCal.createTodoCalRes());
             message = successMessage;

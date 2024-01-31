@@ -22,11 +22,11 @@ public class AddTodoCalOfDateStrategy extends CalTCODCUStrategy{
     public ResStatus<TodosCalOfDateRes> crudCal(String successMessage) {
         User targetUser = userRepository.findById(reqData.getUserId()).orElse(null);
         if (targetUser == null)
-            return new ResStatus<TodosCalOfDateRes>(false, "아이디에 맞는 사용자가 없어유", null);
+            return new ResStatus<TodosCalOfDateRes>(false, "아이디에 맞는 사용자가 없습니다.", null);
         TodoCalOfDate targetTodoCalOfDate =
                 new TodoCalOfDate(null, reqData.getDateId(), reqData.getFeelIdx(), targetUser);
         TodoCalOfDate saveResult = todoCalOfDateRepository.save(targetTodoCalOfDate);
-        if (saveResult == null) return new ResStatus<TodosCalOfDateRes>(false, "저장이 안되었어유", null);
+        if (saveResult == null) return new ResStatus<TodosCalOfDateRes>(false, "저장이 안되었습니다.", null);
         TodosCalOfDateRes result = saveResult.createTodoCalDate();
         return new ResStatus<TodosCalOfDateRes>(true, successMessage, result);
     }

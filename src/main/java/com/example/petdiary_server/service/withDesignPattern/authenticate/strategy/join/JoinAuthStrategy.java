@@ -15,11 +15,11 @@ public class JoinAuthStrategy extends JoinStrategy{
     public ResStatus<JoinRes> authenticate() {
         User sameUser = userRepository.findById(joinReq.getId()).orElse(null);
         if (sameUser != null)
-            return new ResStatus<JoinRes>(false, "동일 회원정보가 존재합니다.\n아이디를 다시 입력해 주세요", null);
+            return new ResStatus<JoinRes>(false, "동일 회원정보가 존재합니다.\n아이디를 다시 입력해 주세요.", null);
         User user = joinReq.createUser();
         User result = userRepository.save(user);
         if (result == null)
-            return new ResStatus(false, "저장이 안되었네유?!", null);
-        return new ResStatus(true, "저장 성공이어유!", result.createJoinRes());
+            return new ResStatus(false, "저장이 안되었습니다.", null);
+        return new ResStatus(true, "저장 성공입니다!", result.createJoinRes());
     }
 }

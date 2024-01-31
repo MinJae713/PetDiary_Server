@@ -44,7 +44,7 @@ public class ComCreateStrategy extends ComCUStrategy {
         );
         Note saveResult = noteRepository.save(targetNote);
         if (saveResult == null)
-            return new ResStatus<List<NoteRes>>(false, "저장이 안되었어유", null);
+            return new ResStatus<List<NoteRes>>(false, "저장이 안되었습니다.", null);
         return getNotesRes(targetScreen);
     }
 }
